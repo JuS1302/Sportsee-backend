@@ -992,6 +992,7 @@
   },
   {
     "id": "user456",
+    "weeklyGoal": 3,
     "userInfos": {
       "firstName": "Marc",
       "lastName": "Dubois",

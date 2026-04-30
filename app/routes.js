@@ -66,9 +66,11 @@ router.get("/api/user-info", authenticateToken, (req, res) => {
     lastName: user.userInfos.lastName,
     createdAt: user.userInfos.createdAt,
     age: user.userInfos.age,
+    gender: user.userInfos.gender,
     weight: user.userInfos.weight,
     height: user.userInfos.height,
     profilePicture: user.userInfos.profilePicture,
+    weeklyGoal: user.weeklyGoal,
   };
 
   return res.json({
@@ -87,7 +89,7 @@ router.get("/api/user-info", authenticateToken, (req, res) => {
  */
 router.get("/api/user-activity", authenticateToken, (req, res) => {
   const { startWeek, endWeek } = req.query;
-  
+
   if (!startWeek || !endWeek) {
     return res.status(400).json({ message: "startWeek and endWeek are required" });
   }
@@ -103,7 +105,7 @@ router.get("/api/user-activity", authenticateToken, (req, res) => {
   const startDate = new Date(startWeek);
   const endDate = new Date(endWeek);
   const now = new Date();
-  
+
   // Filter sessions between startWeek and endWeek, excluding future dates
   const filteredSessions = runningData.filter((session) => {
     const sessionDate = new Date(session.date);
@@ -111,7 +113,7 @@ router.get("/api/user-activity", authenticateToken, (req, res) => {
   });
 
   // Sort by date ascending
-  const sortedSessions = filteredSessions.sort((a, b) => 
+  const sortedSessions = filteredSessions.sort((a, b) =>
     new Date(a.date) - new Date(b.date)
   );
 
