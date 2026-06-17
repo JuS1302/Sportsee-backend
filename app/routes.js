@@ -49,6 +49,7 @@ router.get("/api/user-info", authenticateToken, (req, res) => {
   const decodedToken = jwt.verify(token, SECRET_KEY);
   const user = getUserById(decodedToken.userId);
   const runningData = user.runningData;
+  const baseUrl = `${req.protocol}://${req.get("host")}`;
 
   // Calculate overall statistics
   const totalDistance = runningData.reduce(
@@ -70,7 +71,7 @@ router.get("/api/user-info", authenticateToken, (req, res) => {
     gender: user.userInfos.gender,
     weight: user.userInfos.weight,
     height: user.userInfos.height,
-    profilePicture: user.userInfos.profilePicture,
+    profilePicture: `${baseUrl}${user.userInfos.profilePicture}`,
     weeklyGoal: user.weeklyGoal,
   };
 
