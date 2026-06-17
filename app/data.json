@@ -3,16 +3,16 @@
     "id": "user123",
     "weeklyGoal": 2,
   "userInfos": {
-    "firstName": "Sophie",
-    "lastName": "Martin",
-    "age": 32,
+    "firstName": "Julie",
+    "lastName": "Simon",
+    "age": 38,
     "gender": "female",
-    "profilePicture": "http://localhost:8000/images/sophie.jpg",
-    "height": 165,
-      "weight": 60,
+    "profilePicture": "http://localhost:8000/images/julie.png",
+    "height": 173,
+      "weight": 65,
       "createdAt": "2025-01-01"
   },
-    "username": "sophiemartin",
+    "username": "julie",
     "password": "password123",
   "runningData": [
     {"date":"2025-01-04","distance":5.8,"duration":38,"heartRate":{"min":140,"max":178,"average":163},"caloriesBurned":422},

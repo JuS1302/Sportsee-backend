@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const users = require("./data.json");
 
-const SECRET_KEY = "your-secret-key-12345"; // In a real app, this would be in environment variables
+const SECRET_KEY = process.env.JWT_SECRET || "your-secret-key-12345";
 
 const getUserById = (userId) => {
   return users.find((user) => user.id === userId);
