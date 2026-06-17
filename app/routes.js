@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 
 const users = require("./data.json");
 
-const SECRET_KEY = process.env.JWT_SECRET || "your-secret-key-12345";
+const SECRET_KEY = process.env.JWT_SECRET;
+if (!SECRET_KEY) throw new Error("Variable d'environnement JWT_SECRET manquante !");
 
 const getUserById = (userId) => {
   return users.find((user) => user.id === userId);

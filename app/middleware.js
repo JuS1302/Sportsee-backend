@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 
-const SECRET_KEY = process.env.JWT_SECRET || "your-secret-key-12345";
+const SECRET_KEY = process.env.JWT_SECRET;
+if (!SECRET_KEY) throw new Error("Variable d'environnement JWT_SECRET manquante !");
 
 const handleNoUserData = (res, userData) => {
   if (!userData) {
